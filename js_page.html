@@ -1,0 +1,228 @@
+<!-- This page shows how Javascript code could be interactively used with user input-->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <!-- Common tags to ensure unicode char set, and proper scaling on all devices -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Sets the favicon, the small icon in browser tab. Done with Flask syntax for link -->
+  <link rel="shortcut icon" href="/static/favicon.ico">
+
+  <!--Relevant CSS pages (Bootstrap for modals + W3Schools + local) -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+
+  <!-- JS Script for modals, JQuery (for modals + other functions) -->
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+<title>Fun with Javascript</title>
+
+  <!-- Local CSS and JS Sources -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/static/css/js_page_styles.css">
+  <script defer src="/static/js/js_page_scripts.js"></script>
+  <script defer src="/static/js/js_page_scripts_fonts.js"></script>
+  
+  <!-- Place to inject CSS for changing the pages font colors, size, and styles-->
+
+</head>
+   
+<body>
+    <!-- The Navigation bar. It is rendered by Flask, and exists in application.py -->
+    <nav class="w3-bar w3-black" class="navbar" style="font-family: verdana" style="font-family: verdana">
+      <a href="/" class="w3-button w3-bar-item">Homepage</a>
+      <a href="/bg_page.html" class="w3-button w3-bar-item">Backgrounds</a>
+      <a href="/js_page.html" class="w3-button w3-bar-item">Fun with Javascript</a>
+      <a href="/about.html" class="w3-button w3-bar-item">About</a>
+    </nav>
+  
+<!-- Header -->
+<header class="w3-container w3-red w3-center" style="padding:28px 16px">
+  <h1 class="w3-margin w3-jumbo">Client-Side Javascript</h1>
+  <p class="w3-large">Here are a few ways to use proragmming logic to offer more on your site</p>
+</header>
+
+<!-- First Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-twothird">
+      <h1>Run Programs</h1>
+      <h5 class="w3-padding-12">We can use Javascript to run functions with users providing input. </h5>
+      <p class="w3-text-grey">
+        This is similar to what we can do with Flask, but nothing will go back to our servers since the code is run 
+        locally. We can leverage this programming power by having Javascript scramble the text in the input box. Let's also provide an error 
+        message if the box is left blank.
+      </p>
+
+      <br>
+      
+      <!-- Scambles user input with a JS function. Return false means keep us on the page -->
+      <form onsubmit="scramble(); return false;">
+        <input type="text" id="scramble_text" style="width: 400px" placeholder="Text to scramble">
+        <button id="scramble_submit" class="w3-button w3-red">Scramble</button>
+      </form>
+        <!-- Toggle for empty string method -->
+        <p class="w3-text-grey">For an empty entry, we can switch between the alert error and preventing submission.</p>
+        <label class="switch">
+        <input id="input_checkbox" type="checkbox" onchange="toggle_input();">
+        <span class="slider round"></span>
+      </label>  
+    </div>
+
+    <!-- font awesome icon -->
+    <div class="w3-third w3-center">
+      <i class="fa fa-gears w3-padding-64 w3-text-red" style="font-size:200px" style= "font-family: FontAwesome !important"></i>
+    </div>
+  </div>
+</div>
+
+<!-- Second Grid -->
+<div id="has_grey_class" class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+  
+  <!-- font awesome icon -->
+  <div class="w3-content">
+    <div class="w3-third w3-center">
+      <i class="fa fa-code w3-padding-64 w3-text-red w3-margin-right" style="font-size:200px"></i>
+    </div>
+
+    <div class="w3-twothird">
+      <h1>Control the Webpage</h1>
+      <h5 class="w3-padding-32">Using JavaScript, we can update the code that displays this page.</h5>
+
+      <p class="w3-text-grey">
+        We can actually have JavaScript modify the wepage based on whatever requirements we want. For example, we can 
+        udpate the background or font color, font size, or font style. These are all done by creating style tags and injecting the desired
+        CSS at the end of the head tag. We also force the style globally with the "!important" property. For overrides, it is better to
+        learn CSS specificity, but this property is fine for temporary page changes like these ones.
+      </p>
+
+      <br>
+
+      <!-- Dynamically change bg and font properties on page -->
+      <form onsubmit="color_change('#bg_color'); return false;">
+        <input type="text" id="bg_color" style="width: 100px" placeholder="BG Color" >
+        <button class="w3-button w3-red">Update</button>
+      </form>
+      <p class="w3-text-grey">A helper function checks if you color exists, then document.createElement injects the input.</p>
+
+      <br>
+
+      <form onsubmit="color_change('#font_color'); return false;">
+        <input type="text" id="font_color" style="width: 100px" placeholder="Font Color" >
+        <button class="w3-button w3-red">Update</button>
+      </form>
+      <p class="w3-text-grey">This calls the same Javascript function as font color, with a different parameter (the input ID).</p>
+
+      <br>
+
+      <form onsubmit="font_size_change(); return false;">
+        <input type="number" min="1" max="60" id="font_size" style="width: 100px" placeholder="Font Size">
+        <button  class="w3-button w3-red">Update</button>
+      </form>
+      <p class="w3-text-grey">The input tag marks this as a type of number with a min and max to limit the range</p>
+
+      <br>
+
+    <form autocomplete="off" onsubmit="font_style_change(); return false;">
+      <div class="autocomplete" style="width:300px;">
+        <input type="text" id="font_style" placeholder="Your Font Style">
+      </div>
+      <button class="w3-button w3-red">Update</button>
+    </form>
+      <p class="w3-text-grey">document.CreateElement injects the selection from the drop down. Case insensitive.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Third Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-twothird">
+      <h1>Have the page update itself</h1>
+      <h5 class="w3-padding-12">We can use Javascript to update what our page shows, with or without events</h5>
+      <p class="w3-text-grey">
+        Web pages that try to look alive use Javascript to have elements on the page update after a certain amount of time, such as a 
+        slideshow that will change pictures every few seconds. Pages can use event listeners to have elements update based on user actions, 
+        such as typing, clicking, scrolling, or even just moving the mouse.
+      </p>
+
+      <br>
+
+      <!-- Javascript Event Listeners -->
+      <p id= "update_demo"> Using window.setInterval, This text will 
+        <br>                update to a random font every three seconds.
+      </p>
+
+      <br>
+
+      <p id= "click_demo"> Using the click listener, this text will increase
+        <br>               by 10% in size every time it is clicked.
+      </p>
+
+      <br>      
+
+      <p id="hover_demo">Using mouseOver & mouseOut, this text will change to
+        <br>             a random color every time the mouse hovers over it.
+      </p>
+    </div>
+
+    <!-- font awesome icon -->
+    <div class="w3-third w3-center">
+      <i class="fa fa-refresh w3-padding-64 w3-text-red" style="font-size:200px"></i>
+    </div>
+  </div>
+</div>
+
+<!-- Bottom bar and Footer -->
+<div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+  <p> All  changes  made  on  the  page  will  be  undone  with  a  refresh  (F5).</p>
+</div>
+<footer style="text-align: center;">
+ <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
+
+
+  <!-- Modal button and its content-->
+  <div class="container" id="top_right">
+    <button id="button_adjust" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Explanation</button>
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                
+            <h4 class="modal-title"><b>JavaScript: Some Demonstrations</b></h4>
+          </div>
+  
+          <div class="modal-body">
+            <p>This page shows the different ways Javascript can be used to update the page.
+              <ul>The first grid has a function called on submit that scrambles the input and displays it as an alert</ul>
+              <ul>The second grid has 4 different functions called on typed inputs. The first two change either the bg or font
+                to a validated color, with the different element IDs as the parameter for a function that updates the page style. 
+                The third allows an integer selection to change fonts.</ul>
+              <ul>The font selection is the most intricate part of the page. The auto-complete fonts are the only ones the pages
+                can display. This was tricky to do, but basically, using borrowed code, the webpage checks every front from a list 
+                and then only includes the ones the browser can render. The drop down is from W3 schools, but modified to show each
+                font in the style it represents.</ul>
+              <ul>The final grid of the page shows interval and event listeners used to have the page update with light to no input.</ul>
+            </p>
+          </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Got it</button>
+              </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</body>
+
+</html>
+   

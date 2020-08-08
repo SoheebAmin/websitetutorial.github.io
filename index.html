@@ -1,0 +1,86 @@
+
+<!--This is the homepage of the website, and it also has the most detailed comments to explain elements-->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <!-- Common tags to ensure unicode char set, and proper scaling on all devices -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Sets the favicon, the small icon in browser tab. Done with Flask syntax for link -->
+  <link rel="shortcut icon" href="/static/favicon.ico">
+
+  <!--Relevant CSS pages (Bootstrap for modals + W3Schools + local) -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+
+  <!-- JS Script for modals, JQuery (for modals + other functions) -->
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+  <title>Homepage</title>
+
+   <!-- Local CSS Source -->
+   <link rel="stylesheet" href="/static/css/index_styles.css">
+
+</head>
+   
+<body>
+    <!-- The Navigation bar. It is rendered by Flask, and exists in application.py -->
+    <nav class="w3-bar w3-black" class="navbar" style="font-family: verdana" style="font-family: verdana">
+      <a href="/" class="w3-button w3-bar-item">Homepage</a>
+      <a href="/bg_page.html" class="w3-button w3-bar-item">Backgrounds</a>
+      <a href="/js_page.html" class="w3-button w3-bar-item">Fun with Javascript</a>
+      <a href="/about.html" class="w3-button w3-bar-item">About</a>
+    </nav>
+  
+  <!--Video background-->
+  <video id="videoBG" poster="/static/media/waves_poster.jpg" autoplay muted loop>
+    <source src="/static/media/waves.mp4" type="video/mp4">
+  </video>
+
+  <!--text to display -->
+  <br><br><br><br><br><br><br><br><br>
+  <div class="text-light" style="text-align: center;">
+    <h1>Sample Website</h1>
+    <h3>Created by Soheeb as a learning tool for HTML, CSS, Javascript, and Flask.</h3>
+    <h4>View the source code on <a id="h4_link" href="https://github.com/SoheebAmin/Website_Tutorial/" target="_blank">Github</a></h4>
+  </div>
+
+
+  <!-- Modal button and its content-->
+  <div class="container" id="top_right">
+    <button id="button_adjust" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Explanation</button>
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                
+            <h5 class="modal-title">Homepage Explained</h5>
+          </div>
+          <div class="modal-body" style="text-align: justify;">
+            <p>This homepage has 4 main components:</p>
+            <ul>The Nav bar: Basic nav bar styled by W3 schools. The actual HTML resides within application.py, factored out to be the same for all pages.</ul>
+            <ul>The video background: This is stock footage of waves added as a video play on loop. It styled to be full screen, with additional CSS to handle scaling.</ul>
+            <ul>The page text: This is basic HTML text with some CSS styling.</ul>
+            <ul>This explanation pop-up: This is a button and modal provided by bootstrap, with a bit of customization for button position and color with my own CSS.</ul>
+            <p>As with most pages on this sample site, the stylesheets are from libararies, with a self-made stylesheet to customize provided styles as desired.
+               Besides just viewing it in your browser, the source code for this page can be found <a style="color:blue" href="https://github.com/SoheebAmin/Website_Tutorial/blob/master/index.html">here</a>. 
+               The code has comments to explain what each portion of code is doing.</p>
+          </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Got it</button>
+              </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</body>
+
+</html>
+   

@@ -1,0 +1,41 @@
+body {
+    background: #222;
+    margin: 0rem;
+    min-height: 100vh;
+    font-family: Futura, sans-serif;
+  }
+  
+  #canvas {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  
+  #text {
+    min-height: 100vh;
+    width: 100vw;
+    z-index: 1;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 8vmin;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+            justify-content: center;
+    text-align: center;
+  }
+  
+  #bg_text{   
+    font-family: gergia, serif;
+    color: white;
+}
+
+#toggle_text
+{   
+    font-family: gergia, serif;
+    color: white;
+}

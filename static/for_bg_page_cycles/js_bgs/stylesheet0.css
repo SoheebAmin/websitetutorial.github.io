@@ -1,0 +1,18 @@
+/* Starting placeholder stylesheet, to be replaced by others when cycling between CSS and Javascript backgrounds 
+
+ 
+Just a note, for all Javascript canvases, the below is needed to make HTML elements float above the canvas:
+ 
+#canvas {
+  width: 100%;
+  height: 100%;	
+(NOTE: POSITION CANNOT BE RELATIVE HERE)	
+}
+
+#container {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+*/
