@@ -18,7 +18,7 @@ function changeStyleHTML()
   // removes css stylesheet, and resets the CSS count.
   if (style_counter != 0 & document.querySelector('#allow_mixing:checked') == null)
   {
-    document.getElementById('stylesheet').href = "/static/for_bg_page_cycles/css_bgs/stylesheet0.css";
+    document.getElementById('stylesheet').href = "static/for_bg_page_cycles/css_bgs/stylesheet0.css";
     style_counter = 0;
   }
 
@@ -47,7 +47,7 @@ function changeStyleHTML()
   }
   if (html_counter == 2)
   {
-    document.querySelector('body').style = "background-image: url('/static/media/winter.jpg')";
+    document.querySelector('body').style = "background-image: url('static/media/winter.jpg')";
     document.querySelector('#bg_text').style = "color: gold";
     document.querySelector('#toggle_text').style = "color: gold";
   }
@@ -59,13 +59,13 @@ function changeStyleHTML()
   }
   if (html_counter == 4)
   {
-    document.querySelector('body').style = "background-image: url('/static/media/stars_stock.png')";
+    document.querySelector('body').style = "background-image: url('static/media/stars_stock.png')";
     document.querySelector('#bg_text').style = "color: white";
     document.querySelector('#toggle_text').style = "color: white";
   }
   if (html_counter == 5)
   {
-    document.querySelector('body').style = "background-image: url('/static/media/abstract.jpg')";
+    document.querySelector('body').style = "background-image: url('static/media/abstract.jpg')";
     document.querySelector('#bg_text').style = "color: white";
     document.querySelector('#toggle_text').style = "color: white";
   }
@@ -105,11 +105,11 @@ function changeStyleCSS()
   // inject html based on the stylesheet to load using JQuery
   $(function()
   {
-    $("#inject_html").load("/static/for_bg_page_cycles/css_bgs/html_for_" + style_counter + ".html");
+    $("#inject_html").load("static/for_bg_page_cycles/css_bgs/html_for_" + style_counter + ".html");
   });
 
   // sets the new stylesheet
-  document.querySelector('#stylesheet').href = "/static/for_bg_page_cycles/css_bgs/stylesheet" + style_counter + ".css";
+  document.querySelector('#stylesheet').href = "static/for_bg_page_cycles/css_bgs/stylesheet" + style_counter + ".css";
 }
 
 
@@ -137,11 +137,11 @@ function add_script()
   }
 
   // sets the new stylesheet (Setting it before the JS script matters! Otherwise I've seen funky behavior!)
-  document.querySelector('#stylesheet').href = "/static/for_bg_page_cycles/js_bgs/stylesheet" + js_counter + ".css";
+  document.querySelector('#stylesheet').href = "static/for_bg_page_cycles/js_bgs/stylesheet" + js_counter + ".css";
 
   // adds new Javascript source
   var myScript = document.createElement('script');
-  myScript.setAttribute('src', '/static/for_bg_page_cycles/js_bgs/script' + js_counter + '.js');
+  myScript.setAttribute('src', 'static/for_bg_page_cycles/js_bgs/script' + js_counter + '.js');
   myScript.setAttribute('id', 'script');
   document.head.appendChild(myScript);
 }
